@@ -1,0 +1,95 @@
+body {
+	background: url('../assets/img/2background.png');
+	background-size: 100% 100%;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pedestal {
+	position: fixed;
+	bottom: 50px;
+	width: 80%;
+	height: 150px; /* Высота постамента */
+	z-index: 10;
+	overflow: hidden;
+}
+
+/* Каменные слои */
+.stone-layer {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	background: linear-gradient(to right, #3a3a3a, #5a5a5a, #3a3a3a);
+	box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.stone-layer.middle {
+	bottom: 50px;
+	height: 60px;
+	background: linear-gradient(to right, #2a2a2a, #4a4a4a, #2a2a2a);
+	clip-path: polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);
+}
+
+.stone-layer.top {
+	bottom: 110px;
+	height: 40px;
+	background: linear-gradient(to right, #1a1a1a, #3a3a3a, #1a1a1a);
+	clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+}
+
+/* Эффект (огонь) */
+.pedestal-effect {
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	position: absolute;
+	bottom: 0;
+	margin-top: 1rem;
+	left: 0;
+	width: 100%;
+	height: 20px;
+	background: linear-gradient(to top, #ff5722, #ffc107, transparent);
+	filter: blur(5px);
+	animation: fire-glow 2s infinite alternate;
+	opacity: 0.7;
+}
+
+@keyframes fire-glow {
+	0% {
+		height: 20px;
+		opacity: 0.5;
+	}
+	100% {
+		height: 80px;
+		opacity: 0.9;
+	}
+}
+
+.runes {
+	position: absolute;
+	bottom: 120px;
+	width: 100%;
+	text-align: center;
+	font-size: 24px;
+	color: #ffd700;
+	text-shadow: 0 0 10px #ff5722;
+	animation: runes-pulse 4s infinite;
+}
+
+@keyframes runes-pulse {
+	0%,
+	100% {
+		opacity: 0.7;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+
+img{
+	width: 300px;
+	position: relative;
+	bottom: -70px;
+}
