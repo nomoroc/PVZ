@@ -7,6 +7,107 @@ body {
 	align-items: center;
 }
 
+/* Блок со счетчиком кликов */
+.clicks {
+	position: fixed;
+	top: 20px;
+	bottom: 50px;
+	width: 15%;
+	height: 80px;
+	z-index: 10;
+	overflow: hidden;
+}
+
+.clicks-layer {
+	position: absolute;
+	width: 100%;
+	height: 66px;
+	background: linear-gradient(to right, #932222, #ffc107, #932222);
+	box-shadow: 0 -5px 10px #932222, inset 0 0 20px rgba(0, 0, 0, 0.463);
+}
+
+.clicks-layer.middle {
+	bottom: 50px;
+	height: 50px;
+	background: linear-gradient(to right, #29292e, #302834, #29292e);
+	clip-path: polygon(0% 0%, 100% 0%, 101% 100%, -1% 100%);
+}
+
+.clicks-layer.top {
+	bottom: 45px;
+	height: 35px;
+	background: linear-gradient(to right, #1a1a1a, #362b3b, #1a1a1a);
+	clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
+}
+
+.clicks-runes {
+	position: absolute;
+	top:1px;
+	bottom: 70px;
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+	color: #ffd700;
+	text-shadow: 0 0 10px #ff5722;
+	animation: runes-pulse 4s infinite;
+}
+
+.clicks-score {
+	position: absolute;
+	top:39px;
+	bottom: 120px;
+	width: 100%;
+	text-align: center;
+	font-size: 19px;
+	color: #1a1a1a;
+	text-shadow: 0 0 10px #ff5722;
+	animation: runes-pulse 4s infinite;
+}
+
+/* Блок с будущим изменением спрайта */
+.dragon-view {
+	position: absolute;
+	padding: 2%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	top:10%;
+	left:5%;
+	width: 25%;
+	height: 45%;
+	background: linear-gradient(to right, #0e0928, #0d273c, #0e0928);
+	box-shadow: 0 -5px 10px #0e0b2f, inset 0 0 20px rgba(0, 0, 0, 0.463);
+	color: white;
+	font-size: 24px;
+	transition: 0.5s;
+}
+
+.dragon-view:hover {
+	position: absolute;
+	padding: 2%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	top:10%;
+	left:5%;
+	width: 25%;
+	height: 45%;
+	background: linear-gradient(to right, #0e0928, #0d273c, #0e0928);
+	box-shadow: 0 -5px 10px #0e0b2f, inset 0 0 20px rgba(0, 0, 0, 0.463);
+	color: white;
+	font-size: 24px;
+	transform: scale(1.05);
+}
+
+.dragon-view > .future {
+	width: 70%;
+	height: 70%;
+	transition: 0.5s;
+}
+
+/* Каменный постамент */
 .pedestal {
 	position: fixed;
 	bottom: 50px;
@@ -21,21 +122,21 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 50px;
-	background: linear-gradient(to right, #3a3a3a, #5a5a5a, #3a3a3a);
+	background: linear-gradient(to right, #3a3a3a, #7c3885, #3a3a3a);
 	box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .stone-layer.middle {
 	bottom: 50px;
 	height: 60px;
-	background: linear-gradient(to right, #2a2a2a, #4a4a4a, #2a2a2a);
+	background: linear-gradient(to right, #2a2a2a, #4a4653, #2a2a2a);
 	clip-path: polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);
 }
 
 .stone-layer.top {
 	bottom: 110px;
 	height: 40px;
-	background: linear-gradient(to right, #1a1a1a, #3a3a3a, #1a1a1a);
+	background: linear-gradient(to right, #1a1a1a, #302834, #1a1a1a);
 	clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 10% 100%);
 }
 
@@ -88,8 +189,16 @@ body {
 }
 
 
-img{
+.now{
 	width: 300px;
 	position: relative;
 	bottom: -70px;
+	transition: 0.5s;
+}
+
+.now:hover{
+	width: 300px;
+	position: relative;
+	bottom: -70px;
+	transform: scale(1.15);
 }
