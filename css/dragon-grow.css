@@ -76,7 +76,7 @@ body {
 	left:5%;
 	width: 25%;
 	height: 45%;
-	background: linear-gradient(to right, #0e0928, #0d273c, #0e0928);
+	background: linear-gradient(to right, #0e0928b8, #0d273c, #0e0928b8);
 	box-shadow: 0 -5px 10px #0e0b2f, inset 0 0 20px rgba(0, 0, 0, 0.463);
 	color: white;
 	font-size: 24px;
@@ -94,7 +94,7 @@ body {
 	left:5%;
 	width: 25%;
 	height: 45%;
-	background: linear-gradient(to right, #0e0928, #0d273c, #0e0928);
+	background: linear-gradient(to right, #0e0928b8, #0d273c, #0e0928b8);
 	box-shadow: 0 -5px 10px #0e0b2f, inset 0 0 20px rgba(0, 0, 0, 0.463);
 	color: white;
 	font-size: 24px;
