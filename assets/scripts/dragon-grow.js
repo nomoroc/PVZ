@@ -1,49 +1,68 @@
 const dragon = document.querySelector('.Dragon') // используем lowercase
+const now = document.querySelector('.now')
+const clicksscore = document.querySelector('.clicks-score')
+const clicksscore2 = document.querySelector('.clicks-score2')
 
 const dragonSrc = {
-	one: '/PVZ/assets/img/Dragons/маленький-красный.png',
-	two: '/PVZ/assets/img/Dragons/синий-маленький.png',
-	three: '/PVZ/assets/img/Dragons/средний-красный.png',
-	four: '/PVZ/assets/img/Dragons/красно-белый.png',
-	five: '/PVZ/assets/img/Dragons/фиолетово-синий.png',
-	six: '/PVZ/assets/img/Dragons/синий-большой.png',
+	one: 'assets/img/Dragons/маленький-красный.png',
+	two: 'assets/img/Dragons/средний-красный.png',
+	three: 'assets/img/Dragons/красно-белый.png',
+	four: 'assets/img/Dragons/синий-маленький.png',
+	five: 'assets/img/Dragons/фиолетово-синий.png',
+	six: 'assets/img/Dragons/синий-большой.png',
+}
+
+//кликов для повышения
+const puproses = {
+	one: 50,
+	two: 150,
+	three: 350,
+	four: 700,
+	five: 1000
 }
 
 let clickHandler
 
 function setupDragon() {
+	let purpose = puproses.one
 	const key = 'clicks'
 	let clicks = parseInt(localStorage.getItem(key)) || 0
-	clicks++
+	clicksscore.innerText = clicks
 	clickHandler = function () {
+		clicks++
 
 		// Измененный порядок условий (от большего к меньшему)
-		if (clicks >= 200) {
-			dragon.src = dragonSrc.six
-		} else if (clicks >= 80) {
-			dragon.src = dragonSrc.five
+		let newSrc = dragonSrc.one
+		if (clicks >= 1000) {
+			newSrc = dragonSrc.six
+		} else if (clicks >= 700) {
+			newSrc = dragonSrc.five
+			purpose = puproses.five
+		} else if (clicks >= 350) {
+			newSrc = dragonSrc.four
+			purpose = puproses.four
+		} else if (clicks >= 150) {
+			newSrc = dragonSrc.three
+			purpose = puproses.three
 		} else if (clicks >= 50) {
-			dragon.src = dragonSrc.four
-		} else if (clicks >= 25) {
-			dragon.src = dragonSrc.three
-		} else if (clicks >= 10) {
-			dragon.src = dragonSrc.two
-		} else {
-			dragon.src = dragonSrc.one
+			newSrc = dragonSrc.two
+			purpose = puproses.two
+		} else if (clicks < 50) {
+			newSrc = dragonSrc.one
+			purpose = puproses.one
 		}
+
+		clicksscore2.innerText = puproses - clicks
+		const img = new Image()
+		img.src = newSrc
 
 		localStorage.setItem(key, clicks.toString())
 		console.log('Текущее количество кликов:', clicks)
-
-		dragon.removeEventListener('click', clickHandler)
-
-		setTimeout(() => {
-			dragon.addEventListener('click', clickHandler)
-			console.log('Обработчик восстановлен')
-		}, 3000)
+		clicksscore.innerText = clicks
+		clicksscore2.innerText = purpose - clicks
 	}
 
-	dragon.addEventListener('click', clickHandler)
+	now.addEventListener('click', clickHandler)
 }
 
 // Запускаем сразу (убрал setTimeout из последней строки)
