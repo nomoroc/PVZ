@@ -7,10 +7,15 @@ const clicksscore2 = document.querySelector('.clicks-score2')
 const dragonSrc = {
 	one: 'assets/img/Dragons/маленький-красный.png',
 	two: 'assets/img/Dragons/средний-красный.png',
+	nextTwo: 'assets/img/Dragons/средний-красныйЧБ.png',
 	three: 'assets/img/Dragons/красно-белый.png',
+	nextThree: 'assets/img/Dragons/красно-белыйЧБ.png',
 	four: 'assets/img/Dragons/синий-маленький.png',
+	nextFour: 'assets/img/Dragons/синий-маленькийЧБ.png',
 	five: 'assets/img/Dragons/фиолетово-синий.png',
+	nexFive: 'assets/img/Dragons/фиолетово-синийЧБ.png',
 	six: 'assets/img/Dragons/синий-большой.png',
+	nextSix: 'assets/img/Dragons/синий-большойЧБ.png'
 }
 
 //кликов для повышения
@@ -40,23 +45,23 @@ function setupDragon() {
 		} else if (clicks >= puproses.four) {
 			newSrc = dragonSrc.five
 			purpose = puproses.five
-			fut = dragonSrc.six
+			fut = dragonSrc.nextSix
 		} else if (clicks >= puproses.three) {
 			newSrc = dragonSrc.four
 			purpose = puproses.four
-			fut = dragonSrc.five
+			fut = dragonSrc.nextFive
 		} else if (clicks >= puproses.two) {
 			newSrc = dragonSrc.three
 			purpose = puproses.three
-			fut = dragonSrc.four
+			fut = dragonSrc.nextFour
 		} else if (clicks >= puproses.one) {
 			newSrc = dragonSrc.two
 			purpose = puproses.two
-			fut = dragonSrc.three
+			fut = dragonSrc.nextThree
 		} else if (clicks < puproses.one) {
 			newSrc = dragonSrc.one
 			purpose = puproses.one
-			fut = dragonSrc.two
+			fut = dragonSrc.nextTwo
 		}
 
 		clicksscore2.innerText = puproses - clicks
